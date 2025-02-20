@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
 import time as tm
@@ -19,7 +20,7 @@ def verification(n):
     tm.sleep(n)
     element.send_keys(Keys.ENTER)
 
-    tm.sleep(30)
+    tm.sleep(20)
     # number_code = int(input("Number code:"))
 
     try:
@@ -60,7 +61,33 @@ def credit_take_now(n):
 
     element = driver.find_element("id", "fix-form-btn")
     element.click()
-    tm.sleep(n * 5)
+    tm.sleep(n * 2)
+
+    #   id="agreement0" name="ApplicationDataModel.Agreements[0].IsChecked" type="checkbox"
+    #   http://aidentix-microcredit.credihome.bg/obshti-uslovia/saglasiya"
+
+    element = driver.find_element("id", "agreement0")
+    element.click()
+    tm.sleep(n / 2)
+    #   id="agreement1" name="ApplicationDataModel.Agreements[1].IsChecked" type="checkbox"
+
+    element = driver.find_element("id", "agreement1")
+    element.click()
+    tm.sleep(n / 2)
+    #   id="agreement2" name="ApplicationDataModel.Agreements[2].IsChecked" type="checkbox"
+
+    element = driver.find_element("id", "agreement2")
+    element.click()
+    tm.sleep(n / 2)
+    #   id="agreement3" name="ApplicationDataModel.Agreements[3].IsChecked" type="checkbox"
+    #   id="agreement4" name="ApplicationDataModel.Agreements[4].IsChecked" type="checkbox"
+
+    # TODO all checks?
+
+    # class ="swal-button swal-button--ok" > Продължи < / button >
+    button = driver.find_element(By.XPATH, "//button[contains(text(), 'Продължи')]")
+    button.click()
+    tm.sleep(n)
 
 
 verification(n)
