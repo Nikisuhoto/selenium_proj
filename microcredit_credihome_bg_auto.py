@@ -12,8 +12,7 @@ tm.sleep(n)
 
 
 def verification(n):
-    # <input class="StandardInput StandardInput-is-block EmailInput" type="email"
-    # name="email">
+    # <input class="StandardInput StandardInput-is-block EmailInput" type="email" name="email">
 
     element = driver.find_element("name", "email")
     element.send_keys("niki@dron.bg")
@@ -42,12 +41,8 @@ def slider_left(n):
     actions.click_and_hold(slider).move_by_offset(10, 0).release().perform()
     # [3,4,5,6,7,8,9,10,11,12,15,18]
     tm.sleep(n)
-
-    slider = driver.find_element("id", "MonthIndex")
-    actions = ActionChains(driver)
-    actions.click_and_hold(slider).move_by_offset(15, 0).release().perform()
-    # [3,4,5,6,7,8,9,10,11,12,15,18]
-    tm.sleep(n)
+    # actions.click_and_hold(slider).move_by_offset(5, 0).release().perform()
+    # tm.sleep(n)
 
     # id="email_txt" name="Email" placeholder="Имейл"
 
